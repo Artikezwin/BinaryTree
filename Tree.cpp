@@ -53,7 +53,7 @@ void Tree::output() {
     while(pointer != root){
         cout<<pointer->getKey()<<" ";
         pointer = pointer->parent;
-        if(pointer->right != nullptr){
+        if(pointer->right != nullptr && pointer!=root){
             pointer = pointer->right;
             while(pointer->left != nullptr){
                 pointer = pointer->left;
