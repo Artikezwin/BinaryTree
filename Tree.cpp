@@ -16,29 +16,30 @@ void Tree::insert(float key) {
         cout<<root->getKey()<<" - root\n";
         return;
     }
-    while(this->root != nullptr){
-        if(root->getKey() >= key && root->left == nullptr){
-            root->left = new Node(key);
-            root->left->parent = root;
-            cout<<root->left->getKey()<<" - left\n";
-            cout<<root->left->parent->getKey()<<" - Parent of left\n";
+    Node *pointer = this->root;
+    while(pointer != nullptr){
+        if(pointer->getKey() >= key && pointer->left == nullptr){
+            pointer->left = new Node(key);
+            pointer->left->parent = pointer;
+            cout<<pointer->left->getKey()<<" - left\n";
+            cout<<pointer->left->parent->getKey()<<" - Parent of left\n";
             return;
         }
 
-        else if(root->getKey() >= key && root->left != nullptr){
-            root = root->left;
+        else if(pointer->getKey() >= key && pointer->left != nullptr){
+            pointer = pointer->left;
         }
 
-        else if(key > root->getKey() && root->right == nullptr){
-            root->right = new Node(key);
-            root->right->parent = root;
-            cout<<root->right->getKey()<<" - right\n";
-            cout<<root->right->parent->getKey()<<" - Parent of right\n";
+        else if(key > pointer->getKey() && pointer->right == nullptr){
+            pointer->right = new Node(key);
+            pointer->right->parent = pointer;
+            cout<<pointer->right->getKey()<<" - right\n";
+            cout<<pointer->right->parent->getKey()<<" - Parent of right\n";
             return;
         }
 
-        else if(key > root->getKey() && root->right != nullptr){
-            root = root->right;
+        else if(key > pointer->getKey() && pointer->right != nullptr){
+            pointer = pointer->right;
         }
     }
 }

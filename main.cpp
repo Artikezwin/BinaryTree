@@ -12,6 +12,8 @@ int main() {
     tree.insert(13.5);
     tree.insert(2.5);
     tree.insert(15.5);
+    tree.insert(1.5);
+    tree.insert(25.5);
     //tree.output();
 
     return 0;
