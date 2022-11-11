@@ -14,6 +14,5 @@ int main() {
     tree.insert(15.5);
     //tree.output();
 
-
     return 0;
 }

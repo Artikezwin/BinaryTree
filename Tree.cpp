@@ -19,7 +19,9 @@ void Tree::insert(float key) {
     while(this->root != nullptr){
         if(root->getKey() >= key && root->left == nullptr){
             root->left = new Node(key);
+            root->left->parent = root;
             cout<<root->left->getKey()<<" - left\n";
+            cout<<root->left->parent->getKey()<<" - Parent of left\n";
             return;
         }
 
@@ -29,7 +31,9 @@ void Tree::insert(float key) {
 
         else if(key > root->getKey() && root->right == nullptr){
             root->right = new Node(key);
+            root->right->parent = root;
             cout<<root->right->getKey()<<" - right\n";
+            cout<<root->right->parent->getKey()<<" - Parent of right\n";
             return;
         }
 
