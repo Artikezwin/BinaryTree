@@ -10,6 +10,14 @@ Tree::~Tree() {
 
 }
 
+Node *Tree::getRoot() const {
+    return root;
+}
+
+void Tree::setRoot(Node *root) {
+    Tree::root = root;
+}
+
 void Tree::insert(float key) {
     if(this->root == nullptr){
         this->root = new Node(key);
@@ -44,21 +52,49 @@ void Tree::insert(float key) {
     }
 }
 
-void Tree::output() {
-    Node *pointer = this->root;
-    while(pointer->left != nullptr){
-        pointer = pointer->left;
-    }
+void Tree::output(Node *root) {
+    if(root == nullptr){ return; }
+    output(root->left);
+    cout<<root->getKey()<<" ";
+    output(root->right);
+}
 
-    while(pointer != root){
-        cout<<pointer->getKey()<<" ";
-        pointer = pointer->parent;
-        if(pointer->right != nullptr && pointer!=root){
+float sm=0, kol=0;
+void Tree::average(Node *root) {
+    if(root == nullptr){ return; }
+    average(root->left);
+    sm = sm + root->getKey();
+    kol++;
+    average(root->right);
+    if(root->parent == nullptr){ cout<<"Среднее арифметическое всех узлов - "<<sm/kol; }
+}
+
+
+int Tree::SearchObj(Node *root, float key) {
+    if(root == nullptr){ return 0; }
+    else if(root->key == key){ return kol; }
+    SearchObj(root->left, key);
+
+    SearchObj(root->right, key);
+}
+
+int s = 0;
+int Tree::length(float key) {
+    if(this->root == nullptr){ return 0; }
+    Node *pointer = this->root;
+    while(pointer->getKey() != key){
+        if(pointer->getKey() > key){
+            pointer = pointer->left;
+            s++;
+        }
+        else if(pointer->getKey() < key){
             pointer = pointer->right;
-            while(pointer->left != nullptr){
-                pointer = pointer->left;
-            }
+            s++;
         }
     }
-
+    delete pointer;
+    return s;
 }
+
+
+

@@ -4,17 +4,31 @@
 #include <string>
 using namespace std;
 
-int main() {
-
-    //Node *root = new Node(13.5);
-    //cout<<root->getKey();
-    Tree tree = Tree();
+void append(Tree &tree){
     tree.insert(13.5);
     tree.insert(2.5);
     tree.insert(15.5);
     tree.insert(1.5);
+    tree.insert(3.5);
     tree.insert(25.5);
-    tree.output();
+    tree.insert(12.5);
+    tree.insert(14.7);
+    tree.insert(0.99);
+    tree.insert(1.62);
+}
 
+int main() {
+    system("chcp 65001");
+    Tree tree = Tree();
+    append(tree);
+    tree.output(tree.getRoot());
+    cout<<"\n";
+    tree.average(tree.getRoot());
+    cout<<"\n";
+    cout<<tree.getRoot()->getKey();
+    cout<<"\n";
+    cout<<"Длина от корня до 15.5 - "<<tree.length(15.5);
+    cout<<"\n";
+    cout<<"Длина от корня до 3.5 - "<<tree.length(3.5);
     return 0;
 }

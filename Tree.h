@@ -6,13 +6,18 @@
 struct Tree {
     Tree();
     void insert(float key);
-    void average(); /**Среднее Арифметическое*/
-    void search(float key);
-    void output();
+    void average(Node *root); /**Среднее Арифметическое*/
+    int length(float key);
+    void output(Node *root); /**Симметричный обход дерева*/
     ~Tree();
+
+    Node *getRoot() const;
+
+    void setRoot(Node *root);
 
 private:
     Node *root = nullptr;
+    int SearchObj(Node *root, float key);
 };
 
 
