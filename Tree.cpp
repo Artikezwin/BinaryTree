@@ -78,10 +78,10 @@ int Tree::SearchObj(Node *root, float key) {
     SearchObj(root->right, key);
 }
 
-int s = 0;
 int Tree::length(float key) {
     if(this->root == nullptr){ return 0; }
     Node *pointer = root;
+    int s = 0;
     while(pointer->getKey() != key){
         if(pointer->getKey() > key){
             pointer = pointer->left;
@@ -92,7 +92,6 @@ int Tree::length(float key) {
             s++;
         }
     }
-    delete pointer;
     return s;
 }
 
