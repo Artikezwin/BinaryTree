@@ -47,8 +47,6 @@ int main() {
     cout<<"\n";
     cout<<"Длина от корня до 15.5 - "<<tree.length(15.5);
     cout<<"\n";
-    cout<<"Длина от корня до 3.5 - "<<tree.length(3.5);
-    cout<<"\n";
     cout<<"Длина от корня до 0.99 - "<<tree.length(0.99);
     return 0;
 }

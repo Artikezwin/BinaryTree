@@ -17,7 +17,6 @@ struct Tree {
 
 private:
     Node *root = nullptr;
-    int SearchObj(Node *root, float key);
 };
 
 

@@ -69,15 +69,6 @@ void Tree::average(Node *root) {
     if(root->parent == nullptr){ cout<<"Среднее арифметическое всех узлов - "<<sm/kol; }
 }
 
-
-int Tree::SearchObj(Node *root, float key) {
-    if(root == nullptr){ return 0; }
-    else if(root->key == key){ return kol; }
-    SearchObj(root->left, key);
-
-    SearchObj(root->right, key);
-}
-
 int Tree::length(float key) {
     if(this->root == nullptr){ return 0; }
     Node *pointer = root;

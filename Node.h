@@ -16,19 +16,12 @@ public:
 
     Node *getLeft() const;
 
-    void setLeft(Node *left);
-
     Node *getRight() const;
-
-    void setRight(Node *right);
 
     Node *getParent() const;
 
-    void setParent(Node *parent);
-
     float getKey() const;
 
-    void setKey(float key);
 
 private:
     float key;
