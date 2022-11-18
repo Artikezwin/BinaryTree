@@ -25,6 +25,9 @@ void inp(Tree &tree){
         tree.insert(a);
     }
 }
+/**
+ * @mainpage
+ */
 
 int main() {
     system("chcp 65001");
